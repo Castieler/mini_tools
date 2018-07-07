@@ -23,6 +23,7 @@ def read03Excel(input_path,output_path):
 
 if __name__ =="__main__":
     #支持中文路径，但是python2时Windows下不能使用命令行传入中文路径
+    # excelPath,textPath = sys.argv[1],sys.argv[2] #纯英文路径时可以使用命令行传入参数
     excelPath = 'C:\Users\manin\Desktop\搜狗499054数据/0.xlsx'
     textPath = 'C:\Users\manin\Desktop\搜狗499054数据/0.txt'
     read03Excel(excelPath.decode('utf-8'), textPath.decode('utf-8'))
