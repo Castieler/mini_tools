@@ -14,10 +14,13 @@ def read03Excel(input_path,output_path):
         # row = worksheet.row(i)
         str_ = ""
         for j in range(0, worksheet.ncols):
+            tempValue = worksheet.cell_value(i, j)
+#             if isinstance(tempValue,(float)): #excel中的整型会被读取为浮点型，根据需要在这里进行转换
+#                 tempValue = int(tempValue)
             if j == 0:
-                str_ += str(worksheet.cell_value(i, j)).replace('\t','<-t->').replace('\n','<-n->').replace('\r','<-r->')
+                str_ += str(tempValue).replace('\t','<-t->').replace('\n','<-n->').replace('\r','<-r->')
             else:
-                str_ += '\t' + str(worksheet.cell_value(i, j)).replace('\t', '<-t->').replace('\n', '<-n->').replace('\r','<-r->')
+                str_ += '\t' + str(tempValue).replace('\t', '<-t->').replace('\n', '<-n->').replace('\r','<-r->')
         with open(output_path,'a') as f:
             f.write(str_ +'\n')
 
